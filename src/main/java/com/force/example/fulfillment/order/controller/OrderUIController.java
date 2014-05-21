@@ -74,7 +74,8 @@ public class OrderUIController {
     @RequestMapping(method=RequestMethod.GET)
     public String getOrdersPage(Model model) {
         model.addAttribute("order", new Order());
-        String orgId = cc != null ? cc.getOrganizationContext().getOrganizationId() : null;
+        //line comment
+        String orgId = cc.getOrganizationContext() != null ? cc.getOrganizationContext().getOrganizationId() : null;
         model.addAttribute("orders", orderService.listOrders(orgId));
         return "orders";
     }
