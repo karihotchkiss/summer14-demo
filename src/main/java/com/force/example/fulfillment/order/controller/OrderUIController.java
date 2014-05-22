@@ -73,11 +73,19 @@ public class OrderUIController {
 
     @RequestMapping(method=RequestMethod.GET)
     public String getOrdersPage(Model model) {
+    	
         model.addAttribute("order", new Order());
         //line comment
         String orgId = cc.getOrganizationContext() != null ? cc.getOrganizationContext().getOrganizationId() : null;
         model.addAttribute("orders", orderService.listOrders(orgId));
         return "orders";
+    }
+    
+    @RequestMapping(method=RequestMethod.GET)
+    public String getUserApprovalPage(
+    		@RequestParam("_sfdc_canvas_auth") String auth) {
+    	return "user-approval";
+    	
     }
 
     @RequestMapping(value="{id}", method=RequestMethod.GET)
