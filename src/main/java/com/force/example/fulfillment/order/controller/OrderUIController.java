@@ -68,24 +68,20 @@ public class OrderUIController {
                 return getOrderPage(orderId, subLocation, model);
             }
         }
-        return getOrdersPage(model);
+        return getOrdersPage(model, null);
     }
 
     @RequestMapping(method=RequestMethod.GET)
-    public String getOrdersPage(Model model) {
-    	
+    public String getOrdersPage(Model model, 
+    		@RequestParam(value="_sfdc_canvas_auth", required=false) String userApproved) {
+    	if(userApproved != null){
+    		return "user-approval";
+    	}
         model.addAttribute("order", new Order());
         //line comment
         String orgId = cc.getOrganizationContext() != null ? cc.getOrganizationContext().getOrganizationId() : null;
         model.addAttribute("orders", orderService.listOrders(orgId));
         return "orders";
-    }
-    
-    @RequestMapping(method=RequestMethod.GET)
-    public String getUserApprovalPage(
-    		@RequestParam("_sfdc_canvas_auth") String auth) {
-    	return "user-approval";
-    	
     }
 
     @RequestMapping(value="{id}", method=RequestMethod.GET)
