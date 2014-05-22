@@ -1,4 +1,8 @@
+<%@ page import="java.lang.System" %>
 <html>
+<%
+String consumerKey = System.getenv("CANVAS_CONSUMER_KEY");
+%>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Approve application</title>
