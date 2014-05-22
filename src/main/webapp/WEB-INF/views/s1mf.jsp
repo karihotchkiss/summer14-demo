@@ -155,7 +155,7 @@
 <div id="bodyDiv" style="width:inherit;">
     <div class="container">
         <div>
-        	<div style="height: 50px;" id="orientation-information">
+        	<div style="height: 50px;" id="orientation-information"></div>
             <div id="myPageBlockTable">
                 <h3>Mobile Card Full View</h3>
                 <table id="myTable" width="100%">
