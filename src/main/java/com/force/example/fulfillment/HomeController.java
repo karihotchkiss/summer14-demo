@@ -37,4 +37,8 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public String homePost(Locale locale, Model model){
+		return "home";
+	}
 }
