@@ -34,7 +34,7 @@ function clickHandler(e) {
                         params: {
                             response_type : "token",
                             client_id : consumerKey,
-                            redirect_uri : encodeURIComponent("/_auth")
+                            redirect_uri : encodeURIComponent("/callback.html")
                         }});
             }
             return false;
