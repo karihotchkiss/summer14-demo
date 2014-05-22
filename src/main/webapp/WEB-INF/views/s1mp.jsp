@@ -145,7 +145,7 @@
 
 </head>
 <body>
-    <div id="bodyDiv" style="width:inherit;">
+    <div id="bodyDiv" style="width:inherit;opacity=0.7">
         <div class="container">
             <div>
                 <div id="myPageBlockTable">

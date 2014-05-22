@@ -29,6 +29,7 @@
                 $('#finalizeButton').hide();
             }
             Sfdc.canvas.client.autogrow(sr.client, true);
+            Sfdc.canvas.client.subscribe(sr.client, {name : "canvas.orientation",  onData : onOrientation});
         });
 
         function finalizeHandler(){
@@ -74,6 +75,11 @@
         function getRoot() {
             return sr.client.instanceUrl;
         }
+        
+        function onOrientation(payload) {
+            document.getElementById('orientation-information').innerHTML = payload.orientation;
+        }
+        
     </script>
 
     <style>
@@ -149,6 +155,7 @@
 <div id="bodyDiv" style="width:inherit;">
     <div class="container">
         <div>
+        	<div style="height: 50px;" id="orientation-information">
             <div id="myPageBlockTable">
                 <h3>Mobile Card Full View</h3>
                 <table id="myTable" width="100%">
